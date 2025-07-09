@@ -1,0 +1,1024 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>স্বাধীনতা দিবসের শুভেচ্ছা</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: auto;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            /* Increased padding for better ad spacing */
+            padding-top: 80px;
+            padding-bottom: 80px;
+            contain: layout style;
+        }
+        
+        /* Top Ad Banner - Fixed */
+        .top-ad {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px; /* Increased height */
+            background: rgba(0, 0, 0, 0.95); /* More opaque */
+            backdrop-filter: blur(15px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(255, 153, 51, 0.3); /* Theme colored border */
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Bottom Ad Banner - Fixed */
+        .bottom-ad {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 70px; /* Increased height */
+            background: rgba(0, 0, 0, 0.95); /* More opaque */
+            backdrop-filter: blur(15px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            border-top: 2px solid rgba(19, 136, 8, 0.3); /* Theme colored border */
+            box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Ad Container Styling */
+        .ad-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+        }
+        
+        /* Background Effects - Optimized */
+        .bg-effects {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            pointer-events: none;
+            contain: layout style paint;
+        }
+        
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.2;
+            will-change: transform;
+            animation: float-orb 20s ease-in-out infinite;
+            backface-visibility: hidden;
+        }
+        
+        .orb1 {
+            width: 300px;
+            height: 300px;
+            background: #FF9933;
+            top: -150px;
+            left: -150px;
+        }
+        
+        .orb2 {
+            width: 250px;
+            height: 250px;
+            background: #138808;
+            bottom: -125px;
+            right: -125px;
+            animation-delay: 10s;
+        }
+        
+        @keyframes float-orb {
+            0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+            50% { transform: translate3d(20px, -20px, 0) scale(1.05); }
+        }
+        
+        /* Main Container - Better spacing for ads */
+        .container {
+            min-height: calc(100vh - 160px); /* Adjusted for larger ad space */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px; /* Increased padding */
+            flex-direction: column;
+            contain: layout;
+            /* Ensure content is centered properly */
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+        /* Card Styles - Better positioned */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 35px; /* Slightly increased */
+            max-width: 650px; /* Slightly wider */
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            animation: slideIn 0.8s ease-out;
+            margin: 0 auto 25px auto;
+            will-change: transform, opacity;
+            contain: layout style;
+            flex-shrink: 0;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 30px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FF9933 33%, #FFFFFF 33% 66%, #138808 66%);
+            border-radius: 25px 25px 0 0;
+        }
+        
+        /* Sender Section */
+        .sender-info {
+            margin-bottom: 25px;
+            padding: 20px; /* Increased padding */
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: none;
+            contain: layout style;
+        }
+        
+        .sender-info.active {
+            display: block;
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .sender-label {
+            font-size: 1.1rem; /* Slightly increased */
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
+        }
+        
+        .sender-name {
+            font-size: 2.2rem; /* Increased back */
+            font-weight: 700;
+            background: linear-gradient(45deg, #FF9933, #138808);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .sender-message {
+            font-size: 1rem; /* Increased */
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Main Title */
+        .main-title {
+            font-size: 2.4rem; /* Increased */
+            font-weight: 700;
+            margin-bottom: 20px; /* Increased margin */
+            text-shadow: 0 0 20px rgba(255, 153, 51, 0.5);
+            line-height: 1.2;
+        }
+        
+        /* Flag Section */
+        .flag-section {
+            margin: 25px 0; /* Increased margin */
+            position: relative;
+            contain: layout;
+        }
+        
+        .flag {
+            width: 180px; /* Back to original size */
+            height: 120px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            animation: wave 4s ease-in-out infinite;
+            will-change: transform;
+            backface-visibility: hidden;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: perspective(400px) rotateY(-3deg); }
+            50% { transform: perspective(400px) rotateY(3deg); }
+        }
+        
+        .stripe {
+            width: 100%;
+            height: 40px; /* Back to original */
+            position: relative;
+        }
+        
+        .saffron { background: #FF9933; }
+        .white { 
+            background: #FFFFFF; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .green { background: #138808; }
+        
+        .chakra {
+            width: 24px; /* Back to original */
+            height: 24px;
+            border: 2px solid #000080;
+            border-radius: 50%;
+            position: relative;
+            animation: rotate 10s linear infinite;
+            will-change: transform;
+            backface-visibility: hidden;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Message */
+        .main-message {
+            font-size: 1.1rem; /* Increased */
+            line-height: 1.7;
+            margin: 25px 0; /* Increased margin */
+            padding: 20px; /* Increased padding */
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Input Section */
+        .input-section {
+            margin-top: 30px; /* Increased margin */
+            padding-top: 25px; /* Increased padding */
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .input-section.hidden {
+            display: none;
+        }
+        
+        .section-title {
+            font-size: 1.4rem; /* Increased */
+            margin-bottom: 20px; /* Increased margin */
+            font-weight: 600;
+        }
+        
+        .name-input {
+            width: 100%;
+            padding: 15px 20px; /* Increased padding */
+            font-size: 1.1rem; /* Increased */
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: Arial, sans-serif;
+            margin-bottom: 20px; /* Increased margin */
+            transition: all 0.3s ease;
+        }
+        
+        .name-input:focus {
+            outline: none;
+            border-color: #FF9933;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 15px rgba(255, 153, 51, 0.3);
+        }
+        
+        .name-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .share-btn {
+            width: 100%;
+            padding: 15px 25px; /* Increased padding */
+            font-size: 1.2rem; /* Increased */
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            background: #25D366;
+            color: white;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Increased gap */
+            will-change: transform;
+        }
+        
+        .share-btn:hover {
+            background: #1da851;
+            transform: translate3d(0, -2px, 0);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+        
+        .share-btn:disabled {
+            background: rgba(255, 255, 255, 0.2);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* WhatsApp Icon */
+        .wp-icon {
+            width: 20px; /* Back to original */
+            height: 20px;
+            object-fit: contain;
+        }
+        
+        /* Success Message */
+        .success {
+            background: rgba(37, 211, 102, 0.2);
+            border: 1px solid #25D366;
+            border-radius: 8px;
+            padding: 12px; /* Increased */
+            margin-top: 15px; /* Increased margin */
+            color: #a3f3c0;
+            display: none;
+        }
+        
+        .success.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        /* Create New Button - HIGHLIGHTED (Emoji removed) */
+        .create-new {
+            margin-top: 30px; /* Increased margin */
+            padding: 25px 20px;
+            background: linear-gradient(135deg, rgba(255, 153, 51, 0.15), rgba(19, 136, 8, 0.15));
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            border-radius: 20px;
+            position: relative;
+            display: none;
+            overflow: hidden;
+            animation: glow-pulse 3s ease-in-out infinite;
+        }
+        
+        .create-new::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #FF9933, #138808, #FF9933);
+            background-size: 200% 200%;
+            border-radius: 20px;
+            z-index: -1;
+            animation: gradient-border 3s linear infinite;
+        }
+        
+        .create-new::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background: rgba(10, 10, 10, 0.8);
+            border-radius: 18px;
+            z-index: -1;
+        }
+        
+        @keyframes gradient-border {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes glow-pulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 20px rgba(255, 153, 51, 0.3),
+                    0 0 40px rgba(19, 136, 8, 0.2),
+                    inset 0 0 20px rgba(255, 255, 255, 0.05);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 30px rgba(255, 153, 51, 0.5),
+                    0 0 60px rgba(19, 136, 8, 0.3),
+                    inset 0 0 30px rgba(255, 255, 255, 0.08);
+            }
+        }
+        
+        .create-new.show {
+            display: block;
+            animation: slideIn 0.8s ease-out, glow-pulse 3s ease-in-out 1s infinite;
+        }
+        
+        /* Removed emojis from title */
+        .create-new h4 {
+            font-size: 1.3rem; /* Increased */
+            margin-bottom: 18px; /* Increased margin */
+            background: linear-gradient(45deg, #FF9933, #FFFFFF, #138808);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+        
+        .create-btn {
+            width: 100%;
+            padding: 18px 30px; /* Increased padding */
+            background: linear-gradient(45deg, #FF9933, #138808);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 1.2rem; /* Increased */
+            font-weight: 700;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 
+                0 8px 25px rgba(255, 153, 51, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
+        .create-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .create-btn:hover::before {
+            left: 100%;
+        }
+        
+        .create-btn:hover {
+            background: linear-gradient(45deg, #138808, #FF9933);
+            transform: translate3d(0, -3px, 0) scale(1.02);
+            box-shadow: 
+                0 15px 35px rgba(255, 153, 51, 0.6),
+                0 5px 15px rgba(19, 136, 8, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+        
+        .create-btn:active {
+            transform: translate3d(0, -1px, 0) scale(1.01);
+        }
+        
+        /* Sparkle Icon for Create Button */
+        .create-btn::after {
+            content: '✨';
+            margin-left: 5px;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.2); }
+        }
+        
+        /* Credit Section */
+        .credit-section {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 25px 30px; /* Increased padding */
+            max-width: 450px; /* Slightly wider */
+            width: 100%;
+            text-align: center;
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 1s ease-out 0.5s both;
+            margin: 20px auto 0 auto; /* Increased margin */
+            contain: layout style;
+            flex-shrink: 0;
+        }
+        
+        .credit-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #FF9933, #138808, #FF9933);
+            background-size: 200% 100%;
+            animation: gradient-flow 4s linear infinite;
+            will-change: background-position;
+        }
+        
+        @keyframes gradient-flow {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+        
+        .credit-title {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+        
+        .developer-name {
+            font-size: 1.4rem; /* Increased */
+            font-weight: 700;
+            background: linear-gradient(45deg, #FF9933, #FFFFFF, #138808);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: linear-gradient(45deg, #E1306C, #F77737);
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(225, 48, 108, 0.3);
+            will-change: transform;
+        }
+        
+        .contact-link:hover {
+            transform: translate3d(0, -2px, 0) scale(1.05);
+            box-shadow: 0 8px 25px rgba(225, 48, 108, 0.4);
+            background: linear-gradient(45deg, #C13584, #E1306C);
+        }
+        
+        .instagram-icon {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+                padding-bottom: 70px;
+            }
+            
+            .top-ad, .bottom-ad {
+                height: 65px;
+            }
+            
+            .container {
+                min-height: calc(100vh - 140px);
+                padding: 20px 15px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+            
+            .card {
+                padding: 30px 20px;
+                margin: 0 auto 20px auto;
+            }
+            
+            .main-title {
+                font-size: 1.8rem;
+            }
+            
+            .sender-name {
+                font-size: 1.8rem;
+            }
+            
+            .flag {
+                width: 140px;
+                height: 93px;
+            }
+            
+            .stripe {
+                height: 31px;
+            }
+            
+            .chakra {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+            }
+            
+            .credit-section {
+                padding: 20px 25px;
+                margin: 15px auto 0 auto;
+            }
+            
+            .developer-name {
+                font-size: 1.2rem;
+            }
+            
+            .create-new {
+                padding: 20px 15px;
+                margin-top: 25px;
+            }
+            
+            .create-new h4 {
+                font-size: 1.1rem;
+            }
+            
+            .create-btn {
+                padding: 15px 25px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding-top: 65px;
+                padding-bottom: 65px;
+            }
+            
+            .top-ad, .bottom-ad {
+                height: 60px;
+            }
+            
+            .container {
+                min-height: calc(100vh - 130px);
+                padding: 15px 10px;
+            }
+            
+            .card {
+                padding: 25px 15px;
+            }
+            
+            .main-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.1rem;
+            }
+            
+            .share-btn {
+                font-size: 1.1rem;
+                padding: 12px 20px;
+            }
+            
+            .credit-section {
+                padding: 18px 20px;
+                margin: 12px auto 0 auto;
+            }
+            
+            .developer-name {
+                font-size: 1.1rem;
+            }
+            
+            .contact-link {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+            
+            .create-new {
+                padding: 18px 12px;
+                margin-top: 20px;
+            }
+            
+            .create-new h4 {
+                font-size: 1rem;
+            }
+            
+            .create-btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Disable particles on mobile for better performance */
+        @media (max-width: 768px) {
+            .particle {
+                display: none;
+            }
+        }
+        
+        /* Optimized Particles */
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: float-particle 15s linear infinite;
+            pointer-events: none;
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+        }
+        
+        @keyframes float-particle {
+            0% {
+                transform: translate3d(0, 100vh, 0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.4;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translate3d(30px, -10vh, 0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Fixed Ad Banner -->
+    <div class="top-ad">
+        <div class="ad-container">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '7304378b90a3b09b3b35304849741592',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/7304378b90a3b09b3b35304849741592/invoke.js"></script>
+        </div>
+    </div>
+
+    <!-- Background Effects -->
+    <div class="bg-effects">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+    </div>
+    
+    <!-- Particles - Reduced number -->
+    <div class="particle" style="left: 20%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 80%; animation-delay: 7s;"></div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <div class="card">
+            <!-- Sender Information -->
+            <div class="sender-info" id="senderInfo">
+                <p class="sender-label">আপনাকে স্বাধীনতা দিবসের শুভেচ্ছা জানাচ্ছেন</p>
+                <h2 class="sender-name" id="senderName"></h2>
+                <p class="sender-message">আপনার জন্য বিশেষ শুভেচ্ছা পাঠিয়েছেন</p>
+            </div>
+            
+            <!-- Main Title -->
+            <h1 class="main-title">স্বাধীনতা দিবসের শুভেচ্ছা</h1>
+            
+            <!-- Flag Animation -->
+            <div class="flag-section">
+                <div class="flag">
+                    <div class="stripe saffron"></div>
+                    <div class="stripe white">
+                        <div class="chakra"></div>
+                    </div>
+                    <div class="stripe green"></div>
+                </div>
+            </div>
+            
+            <!-- Main Message -->
+            <div class="main-message">
+                আজ আমাদের গর্বের দিন, স্বাধীনতার ৭৮তম বর্ষপূর্তি। ১৯৪৭ সালের ১৫ই আগস্ট আমাদের প্রিয় ভারতবর্ষ স্বাধীনতা লাভ করে। অসংখ্য বীর শহীদের আত্মত্যাগে অর্জিত এই স্বাধীনতা আমাদের সবচেয়ে মূল্যবান সম্পদ।
+                <br><br>
+                <strong>ভারত মাতার জয়! জয় হিন্দ!</strong>
+            </div>
+            
+            <!-- Input Section -->
+            <div class="input-section" id="inputSection">
+                <h3 class="section-title">আপনিও পাঠান শুভেচ্ছা</h3>
+                <input 
+                    type="text" 
+                    class="name-input" 
+                    id="nameInput" 
+                    placeholder="আপনার নাম লিখুন..."
+                    maxlength="25"
+                >
+                <button class="share-btn" id="shareBtn" disabled>
+                    <img src="https://uploads.onecompiler.io/43q5qc2vj/43q5kh5sw/WP.png.png" alt="WhatsApp" class="wp-icon">
+                    WhatsApp এ শেয়ার করুন
+                </button>
+                <div class="success" id="successMsg">
+                    সফলভাবে তৈরি হয়েছে! এখন WhatsApp এ শেয়ার করুন।
+                </div>
+            </div>
+            
+            <!-- Create New Section - HIGHLIGHTED (Emojis removed) -->
+            <div class="create-new" id="createNew">
+                <h4>আপনিও তৈরি করুন নিজের শুভেচ্ছা</h4>
+                <button class="create-btn" onclick="createNewWish()">
+                    নতুন শুভেচ্ছা তৈরি করুন
+                </button>
+            </div>
+        </div>
+        
+        <!-- Credit Section -->
+        <div class="credit-section">
+            <p class="credit-title">Developed by</p>
+            <h3 class="developer-name">Udit Chand</h3>
+            <a href="https://www.instagram.com/real_udit01?igsh=MWRiNTM5NXp4YjB3MQ==" 
+               target="_blank" 
+               class="contact-link">
+                <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                Contact Me
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom Fixed Ad Banner -->
+    <div class="bottom-ad">
+        <div class="ad-container">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '7304378b90a3b09b3b35304849741592',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/7304378b90a3b09b3b35304849741592/invoke.js"></script>
+        </div>
+    </div>
+
+    <script>
+        // Get elements
+        var senderInfo = document.getElementById('senderInfo');
+        var senderName = document.getElementById('senderName');
+        var inputSection = document.getElementById('inputSection');
+        var createNew = document.getElementById('createNew');
+        var nameInput = document.getElementById('nameInput');
+        var shareBtn = document.getElementById('shareBtn');
+        var successMsg = document.getElementById('successMsg');
+        
+        // Disable particle system for better performance
+        var shouldAddParticles = window.innerWidth > 768 && navigator.hardwareConcurrency > 2;
+        var maxParticles = shouldAddParticles ? 2 : 0;
+        var currentParticles = 0;
+        
+        // Get URL parameter
+        function getUrlParameter(name) {
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+        
+        // Initialize page
+        function init() {
+            var sender = getUrlParameter('from');
+            
+            if (sender && sender.trim()) {
+                senderInfo.classList.add('active');
+                senderName.textContent = decodeURIComponent(sender);
+                inputSection.classList.add('hidden');
+                createNew.classList.add('show');
+            } else {
+                senderInfo.classList.remove('active');
+                inputSection.classList.remove('hidden');
+                createNew.classList.remove('show');
+            }
+        }
+        
+        // Enable/disable share button - Optimized
+        nameInput.addEventListener('input', function() {
+            var name = this.value.trim();
+            shareBtn.disabled = !name;
+            shareBtn.style.background = name ? '#25D366' : 'rgba(255, 255, 255, 0.2)';
+        });
+        
+        // Handle Enter key
+        nameInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !shareBtn.disabled) {
+                shareToWhatsApp();
+            }
+        });
+        
+        // Share to WhatsApp
+        shareBtn.addEventListener('click', shareToWhatsApp);
+        
+        function shareToWhatsApp() {
+            var name = nameInput.value.trim();
+            if (!name) return;
+            
+            var currentUrl = window.location.origin + window.location.pathname;
+            var shareUrl = currentUrl + '?from=' + encodeURIComponent(name);
+            var message = 'স্বাধীনতা দিবসের শুভেচ্ছা!\n\n' +
+                         name + ' আপনাকে স্বাধীনতা দিবসের বিশেষ শুভেচ্ছা পাঠিয়েছেন!\n\n' +
+                         'লিংক: ' + shareUrl + '\n\n' +
+                         '#স্বাধীনতাদিবস #IndependenceDay #ভারতমাতারজয়';
+            
+            successMsg.classList.add('show');
+            
+            var whatsappUrl = 'https://wa.me/?text=' + encodeURIComponent(message);
+            setTimeout(function() {
+                window.open(whatsappUrl, '_blank');
+            }, 500);
+            
+            setTimeout(function() {
+                nameInput.value = '';
+                shareBtn.disabled = true;
+                shareBtn.style.background = 'rgba(255, 255, 255, 0.2)';
+                successMsg.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Create new wish function
+        function createNewWish() {
+            window.location.href = window.location.pathname;
+        }
+        
+        // Optimized particle system - Only for desktop
+        function addParticle() {
+            if (!shouldAddParticles || currentParticles >= maxParticles) return;
+            
+            var particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = '0s';
+            particle.style.animationDuration = (Math.random() * 5 + 10) + 's';
+            document.body.appendChild(particle);
+            currentParticles++;
+            
+            setTimeout(function() {
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                    currentParticles--;
+                }
+            }, 15000);
+        }
+        
+        // Initialize
+        init();
+        
+        // Add particles only on desktop and less frequently
+        if (shouldAddParticles) {
+            setInterval(addParticle, 8000);
+        }
+    </script>
+</body>
+</html>
